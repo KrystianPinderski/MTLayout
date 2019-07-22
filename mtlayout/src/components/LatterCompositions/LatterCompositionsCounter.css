@@ -1,0 +1,10 @@
+.LatterCounter-Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center
+}
+.LatterCounter-Container img{
+    padding-right: 3px;
+}

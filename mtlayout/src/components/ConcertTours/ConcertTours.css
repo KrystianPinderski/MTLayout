@@ -1,0 +1,52 @@
+.ConcertTours-Container{
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Content-Container{
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: flex-start;
+    margin:50px 20px;
+}
+.ConcertTours-MainContainer{
+    display: flex;
+    flex-direction: column;
+}
+.Body-Container p{
+    color:#8a9295;
+    word-wrap: break-word;
+    text-align: left;
+}
+.BuyButton{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 1px solid #b3b4b4;
+    height: 56px;
+    width: 150px;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+@media only screen and (min-width: 600px) {
+    .Content-Container{
+        display: flex;
+        flex-direction: column;
+        justify-items: flex-start;
+        align-items: flex-start;
+        margin:240px 300px;
+    }
+    .ConcertTours-Container{
+        width:100vw;
+    }
+    
+    .Body-Container{
+        width:38vw;
+    }
+}

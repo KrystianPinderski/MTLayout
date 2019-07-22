@@ -1,0 +1,76 @@
+.ButtonTransparent{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 1px solid #b3b4b4;
+    height: 50px;
+    width: 110px;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 12px;
+    flex-direction: row;
+}
+.ButtonDark{
+    background-image: url(../../images/play.png);
+    width: 150px;
+    height: 50px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.ButtonDark p{
+    color:#fff;
+}
+.ButtonLight{
+    background-image: url(../../images/play3.png);
+    width: 150px;
+    height: 50px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.ButtonLight p{
+    color:black;
+}
+.Button{
+    background-image: url(../../images/play2.png);
+    width: 150px;
+    height: 50px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.Button p{
+    color:black;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+    .ButtonLight{
+        width: 196px;
+        height: 56px;
+    }
+        
+    .Button{
+        width: 196px;
+        height: 56px;
+    }
+
+    .ButtonDark{
+        width: 196px;
+        height: 56px;
+    }
+    .ButtonTransparent{
+        height: 55px;
+        width: 150px;
+    }
+}

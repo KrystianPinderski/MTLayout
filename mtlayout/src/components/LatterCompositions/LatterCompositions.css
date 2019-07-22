@@ -1,0 +1,13 @@
+.LatterCompositions-Container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+.LatterCompositions-Body{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-content: center;
+    padding: 30px 0px;
+}

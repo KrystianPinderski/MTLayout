@@ -1,0 +1,21 @@
+.johny-image{
+    position: relative;
+}
+.TopBG{
+    position: relative;
+    width:46vw;
+    bottom: -350px;
+    left:41.6vw;
+    height: 370px;
+    z-index: 2;
+}
+.AboutBotImage{
+    width:100%;
+    height: 82%;
+}
+.BottomBG-Container{
+    mask-size: 200px 200px;
+    mask-image: -webkit-gradient(linear, top center, bottom center, 
+        color-stop(0.00,  rgba(255, 255, 255, 0)),
+        color-stop(1.00,  rgb(255, 255, 255)));
+}

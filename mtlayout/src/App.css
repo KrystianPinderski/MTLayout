@@ -1,0 +1,22 @@
+section{
+  display: flex;
+  margin:0px;
+  padding: 0px;
+}
+.App {
+  margin:0;
+  padding:0;
+}
+.Container{
+  width:100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top:55px;
+}
+#About{
+  z-index: 4;
+  margin-top: 0px;
+}
+

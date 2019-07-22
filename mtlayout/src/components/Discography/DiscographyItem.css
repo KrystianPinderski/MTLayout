@@ -1,0 +1,36 @@
+.Item{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin:5vh 0px;
+}
+.left{
+    width:70%;
+}
+.right{
+    width: 70%;
+}
+.right p {
+    color:#acacac
+}
+#play{
+    width: 196px;
+    height: 56px;
+    background-repeat: no-repeat;
+}
+@media only screen and (min-width: 600px) {
+    .Item{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        margin:5vh 15vw 5vh 20vw;
+    }
+    .left{
+        width:40%;
+    }
+    .right{
+        width: 60%;
+    }
+}
