@@ -1,12 +1,10 @@
-
 @font-face {
-    font-family: 'Dosis';
+    font-family: 'dosisregular';
+    src: url(../../fonts/dosis/dosis-regular-webfont.woff2) format('woff2'),
+         url(../../fonts/dosis/dosis-regular-webfont.woff) format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400;
-    src:
-      local('Dosis-Light'),
-      url(../../fonts/dosis/Dosis-Regular.otf) format('otf'),
-  }
+}
 
 .TitleHeader-Container{
     display: flex;
@@ -26,22 +24,39 @@
 .TitleHeaderCrossed {
     position: relative;
     display: inline-block;
-    font-size: 50px;
-    letter-spacing: 6px;
+    font-size: 30px;
     line-height: 59px;
     color: #000000;
-    font-family: "Dosis-Light";
+    font-family: "dosisregular",sans-serif ;
     font-weight: 400;
     text-align: center;
 }
 
 .TitleHeaderCrossed::before{
     content:'';
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     width:120%;
     position: absolute;
     right: -10%;
     top: 50%;
+}
+.TitleHeader{
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    line-height: 59px;
+    color: #000000;
+    font-family: "dosisregular",sans-serif ;
+    font-weight: 400;
+    text-align: center;
+}
+.TitleHeader::before{
+    content:'';
+    border-bottom: 1px solid black;
+    width:101%;
+    position: absolute;
+    top: 50%;
+    right:0.5%
 }
 
 .overline{
@@ -53,12 +68,33 @@
     z-index: 1;
 }
 
+.background{
+    background: url(../../images/discographyTopBG.png) -20px 50px ;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.gradient{
+  background: -webkit-linear-gradient(#62a2ad, #92bdb7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 @media only screen and (min-width: 600px) {
     .TitleHeader-Container{
         display: flex;
         flex-direction: column;
         justify-items: center;
         align-items: center;
-        margin:0px 25vw 55px 25vw;
+        margin:0px 28vw 55px 28vw;
+    }
+    
+    .TitleHeader{
+        font-size: 50px;
+        letter-spacing: 6px;
+    }
+
+    .TitleHeaderCrossed {
+        font-size: 50px;
+        letter-spacing: 6px;
     }
 }

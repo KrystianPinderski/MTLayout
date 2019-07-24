@@ -1,0 +1,62 @@
+form{
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: column;
+    width:40%;
+    margin:0xp 10%;
+}
+form label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    padding:10px
+}
+form button{
+    margin:10px;
+}
+form label input{
+    margin:0px 10px;
+}
+.Accept-Container{
+    display: flex;
+    flex-direction: column;
+}
+.AcceptForm-Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center
+}
+.buttonClose{
+    width:30px;
+    height: 30px;
+    background-image: url(../../images/buttonX.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+@media only screen and (min-width: 600px) {
+    form button{
+        width:196px;
+        height: 56px;
+    }
+    .Form-Container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+    }
+    .rightImage{
+        width: 40vw;
+        height: 50vh;
+        background-image: url(../../images/headphones.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.5;
+    }
+}

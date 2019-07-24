@@ -12,7 +12,7 @@ export default function DiscographyItem(props) {
             <div className="right">
                 <h2 className="title">{props.articleTitle}</h2>
                 <p className="description">{props.description}</p>
-                <AppButton buttonColor={props.buttonColor} text="PLAY" onClick={console.log("Playing sth?")} />
+                <AppButton buttonColor={props.buttonColor} text="PLAY" onClick={()=>console.log("Playing sth?")} />
             </div>
         </div>
     )

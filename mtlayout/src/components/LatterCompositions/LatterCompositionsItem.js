@@ -10,16 +10,16 @@ function LatterCompositionsItem(props) {
     const { composition } = props
     let soundString = composition.sound.toString()
     let sound = soundString.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ',');
-    let love;
+    let loves;
     let share;
-    if (composition.loves > 1000) {
-        let temp = composition.loves / 1000;
-        love = temp.toString() + " k"
+    if (composition.loves >= 1000) {
+        let temp = parseInt(composition.loves / 1000);
+        loves = temp.toString() + " k"
     } else {
-        love = composition.love
+        loves = composition.loves
     }
-    if (composition.share > 1000) {
-        let temp = composition.share / 1000;
+    if (composition.share >= 1000) {
+        let temp = parseInt(composition.share / 1000);
         share = temp.toString() + " k"
     } else {
         share = composition.share
@@ -27,16 +27,18 @@ function LatterCompositionsItem(props) {
     function left() {
         return (
             <div className="LatterLeft-Container">
-                <p>{composition.data}</p>
-                <h4>{composition.compositionName}</h4>
-                <h4>{composition.title}</h4>
-                <p>{composition.description}</p>
-                <div className="LatterSocial-Container">
-                    <AppButton buttonColor="transparent" text="Visit the iTunes >" />
-                    <LatterCompositionsCounter sound value={sound} />
-                    <LatterCompositionsCounter love value={love} />
-                    <LatterCompositionsCounter share value={share} />
-                    <LatterCompositionsCounter comments value={composition.comments} />
+                <div className="LatterItemBody-Container" >
+                    <p>{composition.date.slice(0, 10)}</p>
+                    <p>{composition.compositionName.toUpperCase()}</p>
+                    <p>{composition.title}</p>
+                    <p>{composition.description}</p>
+                    <div className="LatterSocial-Container">
+                        <AppButton buttonColor="transparent" text="Visit the iTunes >" />
+                        <LatterCompositionsCounter sound value={sound} />
+                        <LatterCompositionsCounter love value={loves} />
+                        <LatterCompositionsCounter share value={share} />
+                        <LatterCompositionsCounter comments value={composition.comments} />
+                    </div>
                 </div>
             </div>
         )
@@ -45,25 +47,27 @@ function LatterCompositionsItem(props) {
         return (
             <div className="LatterRight-Container">
                 <Player className="Player"
+                    playsInline
+                    poster={composition.backgroundImage}
                     src={composition.link}
                 >
-                    <div className={composition.id % 2 === 0 && screenWidth>600? "TriangleRight" : "TriangleLeft"}>
+                    <div className={props.index % 2 !== 0 && screenWidth > 600 ? "TriangleRight" : "TriangleLeft"}>
                     </div>
                 </Player>
             </div>
         )
     }
     return (
-        screenWidth>600?
-        <div className="LatterItem-Container">
-            {composition.id % 2 === 0 ? right() : left()}
-            {composition.id % 2 === 0 ? left() : right()}
-        </div>
-        :
-        <div className="LatterItem-Container">
-            {left()}
-            {right()}
-        </div>
+        screenWidth > 600 ?
+            <div className={props.modal?"LatterItem-Container modal":"LatterItem-Container"}>
+                {props.index % 2 !== 0 ? right() : left()}
+                {props.index % 2 !== 0 ? left() : right()}
+            </div>
+            :
+            <div className="LatterItem-Container">
+                {left()}
+                {right()}
+            </div>
     )
 }
 

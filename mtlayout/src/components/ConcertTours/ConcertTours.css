@@ -15,6 +15,22 @@
     display: flex;
     flex-direction: column;
 }
+.Header-Container{
+    display: flex;
+    flex-direction: column;
+    width: 50%
+}
+.Header-Container h4{
+    position: relative;
+    border-top: 1px solid black;
+    padding-top: 5px;
+    margin:0px;
+}
+
+.Header-Container p{
+    margin:0px;
+    padding-bottom: 5px;
+}
 .Body-Container p{
     color:#8a9295;
     word-wrap: break-word;
@@ -41,6 +57,7 @@
         justify-items: flex-start;
         align-items: flex-start;
         margin:240px 300px;
+        width:40vw;
     }
     .ConcertTours-Container{
         width:100vw;

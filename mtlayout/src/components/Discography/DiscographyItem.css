@@ -3,10 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    align-items: center;
     margin:5vh 0px;
 }
 .left{
     width:70%;
+    margin-top: 30px;
+}
+.left p :last-child{
+    display: flex;
+    border-top:1px solid black;
+    margin-right: 20px;
+    padding-top: 5px;
 }
 .right{
     width: 70%;
@@ -25,6 +33,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-content: center;
+        align-items: initial;
         margin:5vh 15vw 5vh 20vw;
     }
     .left{

@@ -13,7 +13,7 @@ class Discography extends Component {
         return (
             <div className="Discography-Container">
                 <div className="DiscographyTop-Container">
-                    <TitleHeader zIndex id={discography.id}title={discography.title} description={discography.description} />
+                    <TitleHeader background zIndex bothSide title={discography.title} description={discography.description} />
                 </div>
                 <div className="DiscographyBody-Container">
                     {albums.map((album)=>{
