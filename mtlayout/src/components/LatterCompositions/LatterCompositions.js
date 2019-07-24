@@ -4,7 +4,6 @@ import './LatterCompositions.css'
 import { connect } from 'react-redux'
 import LatterCompositionsItem from './LatterCompositionsItem';
 import { setCompositions} from '../../actions/getActions';
-import AppButton from '../AppComponents/AppButton';
 import AddCompositionModal from '../Modals/AddCompositionModal';
 
 
@@ -22,8 +21,7 @@ class LatterCompositions extends Component {
                         return <LatterCompositionsItem key={composition.id} index={index} composition={composition} />
                     })}
                 </div>
-                <AddCompositionModal addComposition={this.addComposition}/>
-                <AppButton buttonColor="light" onClick={this.addComposition} text="Add new Composition" />
+                <AddCompositionModal buttonText="Add composition" addComposition={this.addComposition}/>
             </div>
         )
     }

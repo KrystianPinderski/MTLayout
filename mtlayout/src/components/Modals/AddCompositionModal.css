@@ -3,8 +3,7 @@ form{
     justify-content: center;
     align-content: flex-start;
     flex-direction: column;
-    width:40%;
-    margin:0xp 10%;
+    width:100%;
 }
 form label{
     display: flex;
@@ -37,6 +36,24 @@ form label input{
     background-repeat: no-repeat;
     background-position: center;
 }
+.rightImage{
+    display: none;
+}
+.OpenModalButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    padding:5px;
+    width: 196px;
+    height: 56px;
+    margin:auto;
+    margin-bottom: 50px;
+    background-color: lightblue;
+    border-radius: 5px;
+}
 
 
 @media only screen and (min-width: 600px) {
@@ -51,12 +68,17 @@ form label input{
         align-content: center;
     }
     .rightImage{
-        width: 40vw;
+        display:initial;
+        width: 70vw;
         height: 50vh;
         background-image: url(../../images/headphones.jpg);
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center;
         opacity: 0.5;
+    }
+    form{
+        width:100%;
+        margin:0xp 10%;
     }
 }

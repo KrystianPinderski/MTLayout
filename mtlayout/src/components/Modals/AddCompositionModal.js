@@ -146,7 +146,7 @@ class AddCompositionModal extends Component {
         const { formErrors, formControls } = this.state
         return (
             <div>
-                <button onClick={this.openModal}>Open Modal</button>
+                <div className="OpenModalButton" onClick={this.openModal}>{this.props.buttonText}</div>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onAfterOpen={this.afterOpenModal}
