@@ -9,7 +9,9 @@ const screenWidth = window.innerWidth
 
 function LatterCompositionsItem(props) {
     const { composition } = props
-    let soundString = composition.sound.toString()
+    let soundInt = parseInt(composition.sound)
+    let soundString = soundInt.toString()
+    soundString = soundString.split(/"^0+"/).join("")
     let sound = soundString.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ',');
     let loves;
     let share;
@@ -17,20 +19,25 @@ function LatterCompositionsItem(props) {
         let temp = parseInt(composition.loves / 1000);
         loves = temp.toString() + " k"
     } else {
-        loves = composition.loves
+        loves = parseInt(composition.loves)
+        loves = loves.toString()
     }
+    loves = loves.split(/"^0+"/).join("")
     if (composition.share >= 1000) {
         let temp = parseInt(composition.share / 1000);
         share = temp.toString() + " k"
     } else {
-        share = composition.share
+        share = parseInt(composition.share)
+        share = share.toString()
     }
+    share = share.split(/"^0+"/).join("")
+    let comments = parseInt(composition.comments)
     function left() {
-        let date= moment(composition.date).format('DD-MM-YYYY')
+        let date = moment(composition.date).format('DD-MM-YYYY')
         return (
             <div className="LatterLeft-Container">
                 <div className="LatterItemBody-Container" >
-                    <p>{date.slice(0,10)}</p>
+                    <p>{date.slice(0, 10)}</p>
                     <p>{composition.compositionName.toUpperCase()}</p>
                     <p>{composition.title}</p>
                     <p>{composition.description}</p>
@@ -39,7 +46,7 @@ function LatterCompositionsItem(props) {
                         <LatterCompositionsCounter sound value={sound} />
                         <LatterCompositionsCounter love value={loves} />
                         <LatterCompositionsCounter share value={share} />
-                        <LatterCompositionsCounter comments value={composition.comments} />
+                        <LatterCompositionsCounter comments value={comments} />
                     </div>
                 </div>
             </div>
@@ -61,7 +68,7 @@ function LatterCompositionsItem(props) {
     }
     return (
         screenWidth > 600 ?
-            <div className={props.modal?"LatterItem-Container modal":"LatterItem-Container"}>
+            <div className={props.modal ? "LatterItem-Container modal" : "LatterItem-Container"}>
                 {props.index % 2 !== 0 ? right() : left()}
                 {props.index % 2 !== 0 ? left() : right()}
             </div>
