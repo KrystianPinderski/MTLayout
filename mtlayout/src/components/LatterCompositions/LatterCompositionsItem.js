@@ -15,6 +15,7 @@ function LatterCompositionsItem(props) {
     let sound = soundString.replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ',');
     let loves;
     let share;
+
     if (composition.loves >= 1000) {
         let temp = parseInt(composition.loves / 1000);
         loves = temp.toString() + " k"
@@ -22,7 +23,9 @@ function LatterCompositionsItem(props) {
         loves = parseInt(composition.loves)
         loves = loves.toString()
     }
+
     loves = loves.split(/"^0+"/).join("")
+
     if (composition.share >= 1000) {
         let temp = parseInt(composition.share / 1000);
         share = temp.toString() + " k"
@@ -30,8 +33,12 @@ function LatterCompositionsItem(props) {
         share = parseInt(composition.share)
         share = share.toString()
     }
+
     share = share.split(/"^0+"/).join("")
+
     let comments = parseInt(composition.comments)
+    comments = comments.toString()
+
     function left() {
         let date = moment(composition.date).format('DD-MM-YYYY')
         return (
