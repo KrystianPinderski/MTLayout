@@ -30,6 +30,9 @@ const formValid = state => {
                 valid = true
             }
         }
+        if(val === null){
+            return valid=false;
+        }
         if (val.length === 0) {
             console.log("Set valid to false")
             return valid = false;
@@ -108,10 +111,9 @@ class AddCompositionModal extends Component {
     }
     handleDateChange = date => {
         this.setState({
-            ...this.state,
-            formControls: { date: date }
-        }, () => { console.log(this.state) });
-    }
+          ...this.state,
+          formControls: { ...this.state.formControls, date: date }
+        }, () => { console.log(this.state) })}
     handleChange = event => {
         const { name, value } = event.target;
         let formErrors = this.state.formErrors;
@@ -202,6 +204,7 @@ class AddCompositionModal extends Component {
                                         name="compositionName"
                                         value={formControls.compositionName}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.compositionName.length > 0 && (<p className="ErrorMessage">{formErrors.compositionName}</p>)}
                                 </label>
@@ -211,6 +214,7 @@ class AddCompositionModal extends Component {
                                         name="title"
                                         value={this.state.formControls.title}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.title.length > 0 && (<p className="ErrorMessage">{formErrors.title}</p>)}
                                 </label>
@@ -220,6 +224,7 @@ class AddCompositionModal extends Component {
                                         name="description"
                                         value={this.state.formControls.description}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.description.length > 0 && (<p className="ErrorMessage">{formErrors.description}</p>)}
                                 </label>
@@ -229,6 +234,7 @@ class AddCompositionModal extends Component {
                                         name="backgroundImage"
                                         value={this.state.formControls.backgroundImage}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.backgroundImage.length > 0 && (<p className="ErrorMessage">{formErrors.backgroundImage}</p>)}
                                 </label>
@@ -239,6 +245,7 @@ class AddCompositionModal extends Component {
                                         min="0"
                                         value={this.state.formControls.sound}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.sound.length > 0 && (<p className="ErrorMessage">{formErrors.sound}</p>)}
                                 </label>
@@ -249,6 +256,7 @@ class AddCompositionModal extends Component {
                                         min="0"
                                         value={this.state.formControls.loves}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.loves.length > 0 && (<p className="ErrorMessage">{formErrors.loves}</p>)}
                                 </label>
@@ -259,6 +267,7 @@ class AddCompositionModal extends Component {
                                         min="0"
                                         value={this.state.formControls.share}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.share.length > 0 && (<p className="ErrorMessage">{formErrors.share}</p>)}
                                 </label>
@@ -269,6 +278,7 @@ class AddCompositionModal extends Component {
                                         name="comments"
                                         value={this.state.formControls.comments}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.comments.length > 0 && (<p className="ErrorMessage">{formErrors.comments}</p>)}
                                 </label>
@@ -278,6 +288,7 @@ class AddCompositionModal extends Component {
                                         name="link"
                                         value={this.state.formControls.link}
                                         onChange={this.handleChange}
+                                        disabled={!formControls.date ?true:false}
                                     />
                                     {formErrors.link.length > 0 && (<p className="ErrorMessage">{formErrors.link}</p>)}
                                 </label>
