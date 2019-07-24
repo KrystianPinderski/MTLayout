@@ -4,6 +4,7 @@ import LatterCompositionsCounter from './LatterCompositionsCounter';
 import './LatterCompositionsItem.css'
 import '../../../node_modules/video-react/dist/video-react.css'
 import AppButton from '../AppComponents/AppButton';
+var moment = require('moment');
 const screenWidth = window.innerWidth
 
 function LatterCompositionsItem(props) {
@@ -25,10 +26,11 @@ function LatterCompositionsItem(props) {
         share = composition.share
     }
     function left() {
+        let date= moment(composition.date).format('DD-MM-YYYY')
         return (
             <div className="LatterLeft-Container">
                 <div className="LatterItemBody-Container" >
-                    <p>{composition.date.slice(0, 10)}</p>
+                    <p>{date.slice(0,10)}</p>
                     <p>{composition.compositionName.toUpperCase()}</p>
                     <p>{composition.title}</p>
                     <p>{composition.description}</p>

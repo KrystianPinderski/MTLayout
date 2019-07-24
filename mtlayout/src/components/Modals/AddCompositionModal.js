@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux'
 import './AddCompositionModal.css'
 import LatterCompositionsItem from '../LatterCompositions/LatterCompositionsItem';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 const customStyles = {
     content: {
         width: "85vw",
@@ -19,10 +21,21 @@ const formValid = state => {
     let valid = true;
     Object.values(state.formErrors).forEach(val => val.length > 0 && (valid = false))
     Object.values(state.formControls).forEach(val => {
+        if (Object.prototype.toString.call(val) === '[object Date]') {
+            if (isNaN(val.getTime())) {  // d.valueOf() could also work
+                console.log("Set date valid to false")
+                return valid = false;
+            } else {
+                console.log("Set date valid to true")
+                valid = true
+            }
+        }
         if (val.length === 0) {
+            console.log("Set valid to false")
             return valid = false;
         }
     })
+    console.log("return valid:", valid)
     return valid;
 }
 /* regExLink.test(value)*/
@@ -35,7 +48,7 @@ class AddCompositionModal extends Component {
             modalIsOpen: false,
             formControls: {
                 id: Math.random(),
-                date: new Date("2015-04-03").toISOString(),
+                date: '',
                 compositionName: '',
                 title: '',
                 description: '',
@@ -92,6 +105,12 @@ class AddCompositionModal extends Component {
                 alert("Please set all fields.")
             }
         }
+    }
+    handleDateChange = date => {
+        this.setState({
+            ...this.state,
+            formControls: { date: date }
+        }, () => { console.log(this.state) });
     }
     handleChange = event => {
         const { name, value } = event.target;
@@ -168,6 +187,14 @@ class AddCompositionModal extends Component {
                         </div> :
                         <div className="Form-Container">
                             <form onSubmit={this.handleSubmit}>
+                                <label>
+                                    Composition Date:
+                                <DatePicker
+                                        dateFormat="dd/MM/yyyy"
+                                        selected={formControls.date}
+                                        onChange={this.handleDateChange}
+                                    />
+                                </label>
                                 <label>
                                     Composition name:
                             <input

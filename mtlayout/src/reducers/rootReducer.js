@@ -29,7 +29,7 @@ const rootReducer = (state = initState, action) => {
         case 'SET_COMPOSITIONS':{
             return{
                 ...state,
-                compositions:state.compositions.concat(action.object)
+                compositions:state.compositions.concat(action.object),
             }
         }
         case 'LOADING_APP':{
